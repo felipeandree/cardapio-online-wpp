@@ -435,7 +435,9 @@
                         <div class="form-group container-cep">
                             <label>CEP:</label>
                             <input id="txtCEP" type="text" class="form-control" />
-                            <a class="btn btn-yellow btn-sm"> <i class="fa fa-search"></i></a>
+                            <a class="btn btn-yellow btn-sm" onclick="cardapio.metodos.buscarCep()">
+                                <i class="fa fa-search"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -524,44 +526,29 @@
                     <div class="col-12">
                         <div class="row" id="listaItensResumo">
 
-                            <div class="col-12 item-carrinho resumo">
-                                <div class="img-produto-resumo">
-                                    <img
-                                        src="./img/cardapio/burguers/goldbelly-burger-blend-1-lb.13a21b66edf7173a59c75c3a6d2f981b.jpg" />
-                                </div>
-                                <div class="dados-produto">
-                                    <p class="title-produto-resumo">
-                                        <b>Nome do produto</b>
-                                    </p>
-                                    <p class="price-produto-resumo">
-                                        <b>R$ 100,00</b>
-                                    </p>
-                                </div>
-                                <p class="quantidade-produto-resumo">
-                                    x <b>3</b>
-                                </p>
-                            </div>
-                            <div class="col-12">
-                                <p class="title-carrinho mt-4">
-                                    <b>Local da entrega</b>
-                                </p>
-                            </div>
-
-                            <div class="col-12 item-carrinho resumi">
-                                <div class="img-map">
-                                    <i class="fas fa-map-marked-alt"></i>
-                                </div>
-                                <div class="dados-produto">
-                                    <p class="texto-endereco">
-                                        <b id="resumoEndereco">Rua teste, 200 - bairro teste</b>
-                                    </p>
-                                    <p class="cidade-endereco" id="cidadeEndereco">
-                                        Cidade-SP / 14000-000
-                                    </p>
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div class="col-12">
+                            <p class="title-carrinho mt-4">
+                                <b>Local da entrega</b>
+                            </p>
+                        </div>
+
+                        <div class="col-12 item-carrinho resumi">
+                            <div class="img-map">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="dados-produto">
+                                <p class="texto-endereco">
+                                    <b id="resumoEndereco"></b>
+                                </p>
+                                <p class="cidade-endereco" id="cidadeEndereco">
+
+                                </p>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -572,21 +559,21 @@
                 <div class="container-total text-right mb-4">
                     <p class="mb-0">
                         <span>Subtotal</span>
-                        <span id="lblSubTotal">R$ 95,00</span>
+                        <span id="lblSubTotal">R$ 0,00</span>
                     </p>
                     <p class="mb-0 texto-entrega">
                         <span><i class="fas fa-motorcycle"></i>Entrega:</span>
-                        <span id="lblValorEntrega">+ R$ 5,00</span>
+                        <span id="lblValorEntrega">+ R$ 0,00</span>
                     </p>
                     <p class="mb-0 texto-total">
                         <span><b>Total:</b></span>
-                        <span class="valor-total" id="lblValorTotal"><b>R$ 100,00</b></span>
+                        <span class="valor-total"><b id="lblValorTotal">R$ 0,00</b></span>
                     </p>
                 </div>
-                <a onclick="cardapio.metodos.carregarEtapa(2)" class="btn btn-yellow float-right" id="btnEtapaPedido">
+                <a onclick="cardapio.metodos.carregarEndereco()" class="btn btn-yellow float-right" id="btnEtapaPedido">
                     Continuar
                 </a>
-                <a onclick="cardapio.metodos.carregarEtapa(3)" class="btn btn-yellow float-right hidden"
+                <a onclick="cardapio.metodos.resumoPedido()" class="btn btn-yellow float-right hidden"
                     id="btnEtapaEndereco">
                     Revisar pedido
                 </a>
