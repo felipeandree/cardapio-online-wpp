@@ -15,6 +15,9 @@ var CEULAR_EMPRESA = "5516981736298"
 cardapio.eventos = {
   init: () => {
     cardapio.metodos.obterItensCardapio();
+    cardapio.metodos.carregarBotaoReserva();
+    cardapio.metodos.carregarBotaoLigar();
+    cardapio.metodos.carregarBotaoWhatsapp();
   },
 };
 
@@ -463,6 +466,47 @@ cardapio.metodos = {
           }
       });
     }
+  },
+
+  // carrega o link do botão reserva
+  carregarBotaoReserva: () => {
+
+    var texto = "Olá, gostaria de fazer uma *reserva*";
+
+    let encode = encodeURI(texto)
+
+    let URL = `https://wa.me/${CEULAR_EMPRESA}?text=${encode}`;
+
+    $("#btnReserva").attr("href", URL)
+  },
+
+  carregarBotaoWhatsapp: () => {
+
+    let URL = `https://wa.me/${CEULAR_EMPRESA}`;
+
+    $("#btnWhatsapp").attr("href", URL)
+    $("#btnWhatsappFooter").attr("href", URL)
+  },
+
+  // abre o depoimentos
+  abrirDepoimento:(depoimento) =>{
+
+    $("#depoimento-1").addClass("hidden");
+    $("#depoimento-2").addClass("hidden");
+    $("#depoimento-3").addClass("hidden");
+
+    $("#btnDepoimento-1").removeClass("active");
+    $("#btnDepoimento-2").removeClass("active");
+    $("#btnDepoimento-3").removeClass("active");
+
+    $("#depoimento-" + depoimento).removeClass("hidden");
+    $("#btnDepoimento-" + depoimento).removeClass("active")
+
+  },
+  
+
+  carregarBotaoLigar:() => {
+    $("#btnLigar").attr("href", `tel:${CEULAR_EMPRESA}`)
   },
 
   // mensagens
